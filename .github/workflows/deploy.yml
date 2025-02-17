@@ -15,15 +15,15 @@ jobs:
 
             - name: Build Docker Image
               run: docker build -t ngnix:accion .
-
-            - name: Run Security Scan
-              uses: aquasecurity/trivy-action@master
-              with: 
-                image-ref: nginx:accion
             
             - name: Push image to Docker Hub
               run: |
                 echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
                 docker tag nginx:accion satish680/my-nginx:accion
-                docker push satish680/my-nginx:accion   
+                docker push satish680/my-nginx:accion
+
+            - name: Run Security Scan
+              uses: aquasecurity/trivy-action@master
+              with: 
+                image-ref: satish680/my-nginx:accion       
               
