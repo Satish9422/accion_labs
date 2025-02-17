@@ -10,14 +10,14 @@ spec:
   serviceName: nginx
   template:
     metadata:
-      lables: 
+      labels: 
         app: nginx
     spec:
       containers:
         - name: nginx
           image: nginx:1.19-alpine
           ports:
-            - conatinerPort: 80
+            - containerPort: 80
           volumeMounts: 
             - name: nginx
               mountPath: /usr/share/nginx/html
