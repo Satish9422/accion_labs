@@ -35,7 +35,7 @@ jobs:
                aws-region: us-east-1   
 
             - name: Update kubeconfig  
-              run: aws eks update-kubeconfig --name fargate-cluster --region us-east-1
+              run: aws eks update-kubeconfig --name my-eks-clusters --region us-east-1
                
             - name: Deploy on EKS Cluster
               run: kubectl apply -f nginx.yaml
