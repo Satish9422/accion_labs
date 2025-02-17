@@ -15,12 +15,12 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: nginx:1.19-alpine
+          image: satish680/my-nginx:accion
           ports:
             - containerPort: 80
-          volumeMounts: 
-            - name: nginx-storage
-              mountPath: /usr/share/nginx/html
+          # volumeMounts: 
+          #   - name: nginx-storage
+          #     mountPath: /usr/share/nginx/html
           resources: 
             limits: 
               cpu: "500m"
@@ -28,12 +28,12 @@ spec:
             requests:
               cpu: "256m"
               memory: "128Mi"
-  volumeClaimTemplates:
-    - metadata:
-        name: nginx-storage
-      spec:
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 1Gi                             
+  # volumeClaimTemplates:
+  #   - metadata:
+  #       name: nginx-storage
+  #     spec:
+  #       accessModes: ["ReadWriteOnce"]
+  #       resources:
+  #         requests:
+  #           storage: 1Gi                             
 
