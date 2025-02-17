@@ -24,6 +24,6 @@ jobs:
             - name: Push image to Docker Hub
               run: |
                 echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-                docker tag my-nginx:accion satish680/my-nginx:accion
+                docker tag nginx:accion satish680/my-nginx:accion
                 docker push satish680/my-nginx:accion   
               
