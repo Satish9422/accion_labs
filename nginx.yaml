@@ -13,7 +13,7 @@ spec:
       lables: 
         app: nginx
     spec:
-      conatiners:
+      containers:
         - name: nginx
           image: nginx:1.19-alpine
           ports:
@@ -28,7 +28,7 @@ spec:
             requests:
               cpu: "256m"
               memory: "128Mi"
-  volumeClaimTemplate:
+  volumeClaimTemplates:
     - metadata:
         name: nginx-storage
       spec:
