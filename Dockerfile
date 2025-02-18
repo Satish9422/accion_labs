@@ -1,8 +1,11 @@
 FROM nginx:1.19-alpine
 
-# RUN addgroup -S nginx && adduser -s nginx -G nginx -s /bin/sh nginx
+RUN adduser -S -G nginx nginx || true
 
-RUN chown -R nginx:nginx /var/cache/nginx /var/run /etc/nginx
+# RUN addgroup -S nginx && adduser -S -G nginx nginx
+# -s /bin/sh nginx
+
+RUN chown -R nginx:nginx /var/cache/nginx /etc/nginx /usr/share/nginx /usr/sbin/nginx /var/run/
 
 # COPY nginx.conf /etc/nginx/nginx.conf
 

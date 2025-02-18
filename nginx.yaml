@@ -32,7 +32,7 @@ spec:
       - name: nginx-storage
         persistentVolumeClaim:
           claimName: efs-claim  # Refers to the PVC that uses EFS
-          
+
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
