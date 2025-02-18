@@ -28,10 +28,10 @@ spec:
             requests:
               cpu: "256m"
               memory: "128Mi"         
-    volumes:
-      - name: nginx-storage
-        persistentVolumeClaim:
-          claimName: efs-claim  # Refers to the PVC that uses EFS
+      volumes:
+        - name: nginx-storage
+          persistentVolumeClaim:
+            claimName: efs-claim  # Refers to the PVC that uses EFS
 
 ---
 apiVersion: v1
