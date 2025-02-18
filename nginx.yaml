@@ -27,13 +27,22 @@ spec:
               memory: "256Mi"
             requests:
               cpu: "256m"
-              memory: "128Mi"
-  volumeClaimTemplates:
-    - metadata:
-        name: nginx-storage
-      spec:
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 1Gi                             
+              memory: "128Mi"         
+    volumes:
+      - name: nginx-storage
+        persistentVolumeClaim:
+          claimName: efs-claim  # Refers to the PVC that uses EFS
+          
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: efs-claim
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 1Gi                     
 
